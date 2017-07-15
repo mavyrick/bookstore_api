@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 20170713030852) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "subtotal",                  precision: 10
+    t.decimal  "tax",                       precision: 10
+    t.decimal  "shipping",                  precision: 10
+    t.decimal  "total",                     precision: 10
+    t.integer  "order_status_id", limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
+
   create_table "products", force: :cascade do |t|
     t.string   "category",    limit: 255
     t.string   "name",        limit: 255
