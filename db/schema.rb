@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713030852) do
+ActiveRecord::Schema.define(version: 20170716044931) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(version: 20170713030852) do
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.string   "category",    limit: 255
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.float    "price",       limit: 24
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",             limit: 255
+    t.text     "description",      limit: 65535
+    t.float    "price",            limit: 24
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "product_category", limit: 255
   end
 
 end
